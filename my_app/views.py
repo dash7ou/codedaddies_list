@@ -32,13 +32,13 @@ def new_search(request):
         if post.find(class_='result-image').get('data-ids'):
             post_image_id = post.find(
                 class_='result-image').get('data-ids').split(',')[0].split(':')[1]
-            post_image_url = f'{BASE_CRAIGSLIST_URL}{post_image_id}'
+            post_image_url = f'https://images.craigslist.org/{post_image_id}_300x300.jpg'
         else:
             post_image_url = 'https://craigslist.org/images/peace.jpg'
 
         allPosts.append((post_title, post_url, post_price, post_image_url))
 
-    print(allPosts[1:3])
+    print(allPosts[1])
     frontend_stuff = {
         'search': search,
         'allPosts': allPosts
